@@ -327,7 +327,8 @@ def send_email(html_body, failed_count):
     )
     msg.attach(MIMEText(html_body, "html"))
 
-    with smtplib.SMTP("smtp.office365.com", 587) as server:
+#   with smtplib.SMTP("smtp.office365.com", 587) as server:
+    with smtplib.SMTP("smtp.gmail.com", 587) as server:
         server.starttls()
         server.login(email_from, password)
         server.send_message(msg)
