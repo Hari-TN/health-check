@@ -248,18 +248,13 @@ def build_html_report(results, now):
 <body style="margin:0;padding:0;background:#f0f4f8;font-family:'Segoe UI',Arial,sans-serif;">
 
   <!-- Header -->
-  <div style="background:linear-gradient(135deg,#0f2a5e 0%,#1a56db 60%,#3b82f6 100%);
-      padding:40px;text-align:center;position:relative;overflow:hidden;">
-    <div style="position:absolute;top:-40px;right:-40px;width:200px;height:200px;
-        background:rgba(255,255,255,0.05);border-radius:50%;"></div>
-    <div style="position:absolute;bottom:-60px;left:-20px;width:160px;height:160px;
-        background:rgba(255,255,255,0.04);border-radius:50%;"></div>
-    <div style="font-size:12px;color:#93c5fd;letter-spacing:3px;
-        text-transform:uppercase;margin-bottom:8px;">Automated Monitoring</div>
-    <h1 style="color:#fff;margin:0;font-size:28px;font-weight:700;letter-spacing:1px;">
-      {status_emoji} BOP API Health Report
-    </h1>
-    <p style="color:#bfdbfe;margin:10px 0 0;font-size:14px;">{now}</p>
+  <div style="background:#1a3a5c;padding:20px 24px;">
+    <div style="font-size:18px;font-weight:700;color:#fff;margin:0 0 4px;">
+      {status_emoji} API Health Report
+    </div>
+    <div style="font-size:12px;color:#a8c4e0;">
+      Generated {now} IST
+    </div>
   </div>
 
   {alert_html}
