@@ -1,0 +1,29 @@
+name: API Health Check
+
+on:
+  schedule:
+    - cron: '30 2 * * *'   # 8:00 AM IST = 2:30 AM UTC every day
+  workflow_dispatch:         # lets you run manually from GitHub Actions tab
+
+jobs:
+  health-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run health check and send email
+        env:
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO:   ${{ secrets.EMAIL_TO }}
+          EMAIL_PASS: ${{ secrets.EMAIL_PASS }}
+        run: python health_check.py
